@@ -1,0 +1,64 @@
+/* Estilos generales del cuerpo */
+body {
+    font-family: system-ui, sans-serif; /* Fuente moderna y limpia */
+    margin: 0;
+    background-color: #f4f4f9; /* Un fondo gris muy suave */
+    color: #333; /* Texto oscuro para buena legibilidad */
+    text-align: center;
+}
+
+/* Encabezado principal */
+header {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 40px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+.logo {
+    max-width: 150px; /* Tamaño del logo */
+    margin-bottom: 20px;
+}
+
+/* Estilo para las secciones de productos */
+main {
+    padding: 40px 20px;
+}
+
+.producto {
+    background-color: #ffffff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 600px;
+}
+
+.producto img {
+    max-width: 100%;
+    border-radius: 8px; /* Imágenes también redondeadas */
+}
+
+/* Estilo para los botones */
+.boton-compra {
+    display: inline-block;
+    background-color: #007bff; /* Color azul llamativo */
+    color: #ffffff; /* Texto blanco */
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s; /* Efecto suave al pasar el mouse */
+}
+
+.boton-compra:hover {
+    background-color: #0056b3; /* Un azul más oscuro al pasar el mouse */
+}
+
+/* Pie de página */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
