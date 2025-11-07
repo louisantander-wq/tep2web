@@ -3,263 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Startup - Soluciones Innovadoras</title>
+    <title>THEMAIN - Soluciones Tecnológicas Médicas</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts para tipografía personalizada -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Variables y reset */
+        /*
+        ================================================
+        INICIO DEL CSS - VERSIÓN 3 (Estilo HeyGen)
+        ================================================
+        */
         :root {
-            --primary: #4361ee;
-            --secondary: #3a0ca3;
-            --accent: #f72585;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
+            --primary: #4361ee;       
+            --secondary: #3a0ca3;     
+            --accent: #00bfa5;        
+            
+            /* Paleta de estilo HeyGen */
+            --light: #f8f9fa;         
+            --dark: #1a1a1a; /* Un negro más suave que el #000 */
+            --gray: #6c757d;          
+            --white: #ffffff;
+            --border-color: #f0f0f0; /* Borde sutil para tarjetas */
+
+            /* Variables de diseño HeyGen */
             --transition: all 0.3s ease;
+            --border-radius-md: 12px; /* Bordes más suaves */
+            --border-radius-lg: 16px; /* Bordes más suaves */
+            --soft-shadow: 0 8px 32px rgba(0, 0, 0, 0.07); /* Sombra muy suave */
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
             line-height: 1.6;
             color: var(--dark);
             overflow-x: hidden;
             font-family: 'Inter', sans-serif;
+            background-color: var(--white);
         }
-        
+
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-weight: 800; /* Títulos más gruesos */
+            letter-spacing: -0.5px;
         }
-        
+
+        p {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: var(--gray);
+        }
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
-        
-        /* Header y navegación */
+
+        /* HEADER: CAMBIO A "GLASSMORPHISM"
+        */
         header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            /* Efecto Vidrio Esmerilado */
+            background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco semi-transparente */
+            backdrop-filter: blur(10px); /* El filtro de desenfoque */
+            -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+            
+            border-bottom: 1px solid rgba(230, 230, 230, 0.5); /* Borde sutil */
+            box-shadow: none; /* Quitamos la sombra inicial */
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: var(--transition);
         }
-        
+
+        /* Sombra suave al hacer scroll */
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo {
-            height: 40px;
-            width: auto;
+            padding: 15px 0; /* Un poco más de padding */
             transition: var(--transition);
         }
         
+        header.scrolled .nav-container {
+            padding: 10px 0;
+        }
+
+        .logo {
+            height: 35px; /* Logo ligeramente más pequeño y nítido */
+            width: auto;
+            transition: var(--transition);
+        }
+
         .company-name {
-            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--dark);
-            letter-spacing: -0.5px;
         }
-        
-        .logo:hover {
-            transform: scale(1.05);
-        }
-        
+
         .nav-links {
             display: flex;
+            align-items: center; /* Centramos verticalmente */
             list-style: none;
         }
-        
+
         .nav-links li {
-            margin-left: 30px;
+            margin-left: 35px; /* Más espacio entre enlaces */
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
+            font-size: 0.95rem; /* Ligeramente más pequeño */
             transition: var(--transition);
             position: relative;
-            font-family: 'Inter', sans-serif;
         }
-        
+
         .nav-links a:hover {
             color: var(--primary);
         }
         
+        /* Efecto de subrayado sutil */
         .nav-links a:after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
             bottom: -5px;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             background-color: var(--primary);
             transition: var(--transition);
         }
-        
         .nav-links a:hover:after {
             width: 100%;
         }
-        
+
+        /* Botón de "Contacto" estilo HeyGen */
+        .nav-links .nav-button a {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 8px 18px;
+            border-radius: 50px; /* Botón "píldora" */
+            font-weight: 600;
+        }
+        .nav-links .nav-button a:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        .nav-links .nav-button a:after {
+            display: none; /* Sin subrayado para el botón */
+        }
+
         .menu-toggle {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
         }
-        
-        /* Sección Hero con animación */
+
+        /* HERO: CAMBIO A FONDO BLANCO + "MESH GRADIENT"
+        */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 150px 0 100px;
+            background: var(--white); /* Fondo blanco */
+            color: var(--dark); /* Texto oscuro */
+            
+            /* MÁS ESPACIO EN BLANCO */
+            padding: 220px 0 160px; 
+            
             text-align: center;
             position: relative;
-            overflow: hidden;
+            overflow: hidden; /* Importante para contener las formas */
         }
-        
-        .hero:before {
-            content: '';
+
+        /* Contenedor para las formas difuminadas */
+        .hero-background-shapes {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTIwMCA4MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTIwMCAwSDB2ODBoMTIwMFYweiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+PHBhdGggZD0iTTEyMDAgMTYwSDB2ODBoMTIwMHYtODB6IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDgpIi8+PHBhdGggZD0iTTEyMDAgMzIwSDB2ODBoMTIwMHYtODB6IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDYpIi8+PHBhdGggZD0iTTEyMDAgNDgwSDB2ODBoMTIwMHYtODB6IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDQpIi8+PHBhdGggZD0iTTEyMDAgNjQwSDB2ODBoMTIwMHYtODB6IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDIpIi8+PC9nPjwvc3ZnPg==');
-            opacity: 0.1;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Las formas de color */
+        .hero-background-shapes .shape {
+            position: absolute;
+            border-radius: 50%;
+            /* El truco: un filtro blur muy grande */
+            filter: blur(120px);
+            opacity: 0.2; /* Muy sutil */
         }
         
+        .hero-background-shapes .shape1 {
+            width: 500px;
+            height: 500px;
+            background: var(--primary);
+            top: -150px;
+            left: -150px;
+        }
+
+        .hero-background-shapes .shape2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            bottom: -100px;
+            right: -100px;
+        }
+
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
-            z-index: 1;
+            z-index: 1; /* El contenido va por encima de las formas */
         }
-        
+
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 4rem; /* Título más grande e impactante */
             font-weight: 800;
+            margin-bottom: 25px;
             line-height: 1.2;
-            letter-spacing: -1px;
         }
-        
+
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            margin-bottom: 35px;
+            color: var(--gray);
             font-weight: 400;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        
+
         .cta-button {
             display: inline-block;
             background-color: var(--accent);
             color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
+            padding: 14px 35px; /* Botón más grande */
+            border-radius: 50px; /* Botón "píldora" */
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(247, 37, 133, 0.4);
-            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 20px rgba(0, 191, 165, 0.3); /* Sombra de color */
         }
-        
+
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(247, 37, 133, 0.6);
+            transform: translateY(-3px) scale(1.03); /* Efecto hover más dinámico */
+            box-shadow: 0 8px 25px rgba(0, 191, 165, 0.4);
+        }
+
+        /* SECCIONES: MÁS ESPACIO Y DISEÑO LIMPIO
+        */
+        .features, .products, .trust-section, .testimonials {
+            padding: 120px 0; /* MÁS ESPACIO EN BLANCO */
         }
         
-        /* Contenedor para animación/GIF */
-        .animation-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 60px 0;
-            min-height: 400px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .demo-animation {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-            text-align: center;
-        }
-        
-        .demo-placeholder {
-            width: 100%;
-            max-width: 600px;
-            height: 300px;
-            background-color: #e9ecef;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 20px;
-            color: var(--gray);
-            font-style: italic;
-        }
-        
-        .demo-placeholder i {
-            font-size: 4rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        /* Sección de características */
         .features {
-            padding: 100px 0;
+            background-color: var(--white);
+        }
+        .products {
             background-color: var(--light);
         }
-        
+        .trust-section {
+            background-color: var(--white);
+        }
+        .testimonials {
+            background-color: var(--light);
+        }
+
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px; /* Más espacio */
         }
-        
+
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem; /* Títulos de sección más grandes */
             color: var(--dark);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             position: relative;
             display: inline-block;
-            letter-spacing: -0.5px;
         }
         
+        /* Línea de acento más sutil */
         .section-title h2:after {
             content: '';
             position: absolute;
@@ -271,7 +315,7 @@
             transform: translateX(-50%);
             border-radius: 2px;
         }
-        
+
         .section-title p {
             color: var(--gray);
             max-width: 600px;
@@ -279,143 +323,217 @@
             font-size: 1.1rem;
         }
         
+        /* TARJETAS: BORDES SUAVES Y SOMBRAS SUTILES
+        */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .feature-card {
-            background: white;
+            background: var(--white);
             padding: 40px 30px;
-            border-radius: 10px;
+            border-radius: var(--border-radius-lg); /* Borde suave */
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color); /* Borde sutil */
+            box-shadow: none; /* Quitamos sombra por defecto */
             transition: var(--transition);
         }
-        
+
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--soft-shadow); /* Sombra suave al hacer hover */
         }
-        
+
         .feature-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             color: white;
             font-size: 1.8rem;
         }
-        
+
         .feature-card h3 {
             margin-bottom: 15px;
             font-size: 1.5rem;
-            letter-spacing: -0.3px;
+            font-weight: 700;
         }
-        
-        /* Sección de productos */
-        .products {
-            padding: 100px 0;
-        }
-        
+
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
         }
-        
+
         .product-card {
-            background: white;
-            border-radius: 10px;
+            background: var(--white);
+            border-radius: var(--border-radius-lg); /* Borde suave */
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color); /* Borde sutil */
+            box-shadow: var(--soft-shadow); /* Sombra suave permanente */
             transition: var(--transition);
         }
-        
+
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
         }
-        
+
         .product-image {
-            height: 200px;
+            height: 250px;
             width: 100%;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
         }
-        
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: transform 0.4s ease;
         }
-        
         .product-card:hover .product-image img {
-            transform: scale(1.1);
+            transform: scale(1.05); /* Zoom sutil */
         }
-        
+
         .product-content {
-            padding: 25px;
+            padding: 30px;
         }
-        
+
         .product-content h3 {
             margin-bottom: 10px;
             font-size: 1.4rem;
-            letter-spacing: -0.3px;
+            font-weight: 700;
         }
-        
+
         .product-content p {
             color: var(--gray);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
-        
+
         .boton-compra {
             display: inline-block;
             background-color: var(--primary);
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 10px 22px;
+            border-radius: 50px; /* Botón "píldora" */
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
-            font-family: 'Inter', sans-serif;
         }
-        
+
         .boton-compra:hover {
             background-color: var(--secondary);
+            transform: scale(1.05);
         }
-        
+
+        /* Sección de Confianza */
+        .trust-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .trust-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+        .trust-logo:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+        .trust-logo i {
+            font-size: 3rem;
+            color: var(--accent);
+        }
+        .trust-logo span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Sección de Testimonios */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 35px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--soft-shadow);
+            transition: var(--transition);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-author h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .testimonial-author span {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
         /* Footer */
         footer {
             background-color: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
+            color: var(--light);
+            padding: 80px 0 40px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
-        
+
         .footer-column h3 {
             margin-bottom: 20px;
             font-size: 1.3rem;
             position: relative;
             padding-bottom: 10px;
-            letter-spacing: -0.3px;
         }
-        
+
         .footer-column h3:after {
             content: '';
             position: absolute;
@@ -425,17 +543,22 @@
             bottom: 0;
             left: 0;
         }
-        
+
         .footer-column p {
             margin-bottom: 20px;
-            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.7);
         }
-        
+        .footer-email-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
         .social-links {
             display: flex;
             gap: 15px;
         }
-        
+
         .social-links a {
             display: flex;
             align-items: center;
@@ -448,49 +571,49 @@
             text-decoration: none;
             transition: var(--transition);
         }
-        
+
         .social-links a:hover {
             background: var(--primary);
             transform: translateY(-3px);
         }
-        
+
         .footer-links {
             list-style: none;
         }
-        
         .footer-links li {
             margin-bottom: 10px;
         }
-        
         .footer-links a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: var(--transition);
         }
-        
         .footer-links a:hover {
             color: var(--primary);
             padding-left: 5px;
         }
-        
+
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
-            opacity: 0.7;
+            color: rgba(255, 255, 255, 0.6);
         }
-        
-        /* Animaciones personalizadas */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+        /* Animación de scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        
-        .floating {
-            animation: float 5s ease-in-out infinite;
+
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        
+
+
         /* Responsive */
         @media (max-width: 768px) {
             .menu-toggle {
@@ -499,16 +622,19 @@
             
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 65px; /* Ajuste para el header más pequeño */
                 left: -100%;
                 width: 100%;
                 flex-direction: column;
-                background: white;
+                background: var(--white);
                 box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
                 transition: var(--transition);
-                padding: 20px 0;
+                padding: 10px 0;
             }
-            
+            header.scrolled .nav-links {
+                top: 60px;
+            }
+
             .nav-links.active {
                 left: 0;
             }
@@ -516,48 +642,50 @@
             .nav-links li {
                 margin: 0;
                 text-align: center;
+                width: 100%;
+            }
+            .nav-links a {
+                display: block;
+                padding: 18px 0;
+            }
+            .nav-links .nav-button {
                 padding: 15px 0;
             }
-            
-            .hero h1 {
-                font-size: 2.5rem;
+            .nav-links .nav-button a {
+                display: inline-block; /* Para que el botón no ocupe todo */
+                width: auto;
             }
             
+            .hero {
+                padding: 180px 0 100px;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
             .hero p {
                 font-size: 1rem;
             }
-            
-            .animation-container {
-                min-height: 300px;
-                margin: 40px 0;
+
+            .features, .products, .trust-section, .testimonials {
+                padding: 80px 0;
             }
-            
-            .demo-placeholder {
-                height: 200px;
+            .section-title h2 {
+                font-size: 2.2rem;
             }
             
             .company-name {
                 font-size: 1.4rem;
             }
         }
-        
-        @media (max-width: 480px) {
-            .logo-container {
-                gap: 10px;
-            }
-            
-            .company-name {
-                font-size: 1.2rem;
-            }
-        }
+
     </style>
 </head>
 <body>
-    <!-- Header y Navegación -->
-    <header>
+
+    <header id="main-header">
         <div class="container nav-container">
             <div class="logo-container">
-                <a href="#"><img src="images/LOGO 1.png" alt="Logo de mi Startup" class="logo"></a>
+                <a href="#inicio"><img src="images/LOGO 1.png" alt="Logo THEMAIN" class="logo"></a>
                 <span class="company-name">THEMAIN</span>
             </div>
             <div class="menu-toggle">
@@ -565,100 +693,93 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#demo">Demo</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#caracteristicas">Características</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#soluciones">Soluciones</a></li>
+                <li><a href="#caracteristicas">Beneficios</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li class="nav-button"><a href="#contacto">Contacto</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- Sección Hero -->
     <section class="hero" id="inicio">
+        <div class="hero-background-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+        </div>
+        
         <div class="container hero-content">
-            <h1>La Solución Innovadora que<br>tu Empresa Necesita</h1>
-            <p>Transformamos tus desafíos en oportunidades con nuestras soluciones tecnológicas de vanguardia. Simplificamos procesos complejos para impulsar tu crecimiento.</p>
-            <a href="#demo" class="cta-button">Ver Demo en Acción</a>
+            <h1>Innovación en Tecnología Médica para la Atención del Futuro</h1>
+            <p>Desarrollamos soluciones de software y hardware que mejoran la precisión diagnóstica, optimizan la gestión hospitalaria y salvan vidas.</p>
+            <a href="#contacto" class="cta-button">Solicitar una Demostración</a>
         </div>
     </section>
 
-    <!-- Sección de Demo/Animación -->
-    <section class="container animation-container" id="demo">
-        <div class="demo-animation">
-            <img src="images/dna.gif" alt="Demo de THE MAIN" style="max-width: 100%; border-radius: 10px;">
-            <h3>Descubre cómo nuestra solución transforma tu workflow</h3>
-            <p>Esta animación demostrará las capacidades únicas de nuestro producto.</p>
-        </div>
-    </section>
-
-    <!-- Sección de Características -->
     <section class="features" id="caracteristicas">
         <div class="container">
             <div class="section-title">
-                <h2>¿Por Qué Elegirnos?</h2>
-                <p>Ofrecemos soluciones únicas que marcan la diferencia en el mercado actual</p>
+                <h2>El Futuro de la Salud es Preciso y Seguro</h2>
+                <p>Nuestra tecnología está diseñada por expertos para profesionales.</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card fade-in-up">
                     <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
+                        <i class="fas fa-microscope"></i>
                     </div>
-                    <h3>Implementación Rápida</h3>
-                    <p>Nuestras soluciones están diseñadas para implementarse en tiempo récord, minimizando la interrupción de tus operaciones.</p>
+                    <h3>Precisión Diagnóstica</h3>
+                    <p>Nuestros algoritmos de IA analizan imágenes médicas con una precisión superior, detectando patrones imperceptibles para el ojo humano.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card fade-in-up">
                     <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-shield-halved"></i>
                     </div>
-                    <h3>Máxima Seguridad</h3>
-                    <p>Priorizamos la protección de tus datos con protocolos de seguridad de última generación.</p>
+                    <h3>Seguridad de Datos (HIPAA/LGPD)</h3>
+                    <p>Priorizamos la confidencialidad del paciente con encriptación de extremo a extremo y cumplimiento de normativas internacionales.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card fade-in-up">
                     <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
+                        <i class="fas fa-user-doctor"></i>
                     </div>
-                    <h3>Soporte 24/7</h3>
-                    <p>Nuestro equipo de soporte está disponible en todo momento para resolver tus dudas y problemas.</p>
+                    <h3>Soporte Clínico 24/7</h3>
+                    <p>Ofrecemos soporte especializado con ingenieros biomédicos listos para asistirle en cualquier momento.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Productos -->
-    <section class="products" id="productos">
+    <section class="products" id="soluciones">
         <div class="container">
             <div class="section-title">
-                <h2>Nuestros Productos</h2>
-                <p>Soluciones diseñadas para impulsar tu negocio al siguiente nivel</p>
+                <h2>Nuestras Soluciones MedTech</h2>
+                <p>Tecnología de vanguardia diseñada para el entorno clínico.</p>
             </div>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card fade-in-up">
                     <div class="product-image">
-                        <img src="images/proyecto1.png" alt="Foto del Producto 1">
+                        <img src="images/producto_telemedicina.jpg" alt="Plataforma de Telemedicina">
                     </div>
                     <div class="product-content">
-                        <h3>Producto Premium</h3>
-                        <p>Una solución completa que optimiza todos tus procesos empresariales, aumentando la eficiencia en un 40%.</p>
-                        <a href="#" class="boton-compra">¡Lo quiero!</a>
+                        <h3>Plataforma de Telemedicina</h3>
+                        <p>Conecte a médicos y pacientes de forma segura y eficiente, con historial clínico integrado y videoconsulta en HD.</p>
+                        <a href="#" class="boton-compra">Conocer Más</a>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in-up">
                     <div class="product-image">
-                        <img src="images/proyecto2.png" alt="Foto del Producto 2">
+                        <img src="images/producto_ia_diagnostico.jpg" alt="Análisis de Imagen con IA">
                     </div>
                     <div class="product-content">
-                        <h3>Suite Empresarial</h3>
-                        <p>Conjunto de herramientas integradas que facilitan la gestión de proyectos, equipos y recursos.</p>
-                        <a href="#" class="boton-compra">Comprar Ahora</a>
+                        <h3>Análisis de Imagen con IA</h3>
+                        <p>Software de diagnóstico asistido por IA para radiología y patología. Aumente la velocidad y precisión de sus informes.</p>
+                        <a href="#" class="boton-compra">Ver Detalles</a>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card fade-in-up">
                     <div class="product-image">
-                        <img src="https://via.placeholder.com/400x250" alt="Foto del Producto 3">
+                        <img src="images/producto_monitor_iot.jpg" alt="Monitorización Remota IoT">
                     </div>
                     <div class="product-content">
-                        <h3>Solución Básica</h3>
-                        <p>Perfecta para pequeñas empresas que buscan comenzar su transformación digital de manera accesible.</p>
+                        <h3>Monitorización Remota (IoT)</h3>
+                        <p>Dispositivos IoT para el seguimiento de signos vitales en tiempo real, reduciendo reingresos hospitalarios.</p>
                         <a href="#" class="boton-compra">Más Información</a>
                     </div>
                 </div>
@@ -666,27 +787,84 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="trust-section" id="certificaciones">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comprometidos con los Más Altos Estándares</h2>
+                <p>Nuestras soluciones cumplen con las normativas globales más exigentes.</p>
+            </div>
+            <div class="trust-logos">
+                <div class="trust-logo fade-in-up">
+                    <i class="fas fa-check-circle"></i>
+                    <span>ISO 13485</span>
+                </div>
+                <div class="trust-logo fade-in-up">
+                    <i class="fas fa-file-medical"></i>
+                    <span>Cumplimiento HIPAA</span>
+                </div>
+                <div class="trust-logo fade-in-up">
+                    <i class="fas fa-award"></i>
+                    <span>Aprobado FDA (en proceso)</span>
+                </div>
+                <div class="trust-logo fade-in-up">
+                    <i class="fas fa-lock"></i>
+                    <span>RGPD / LGPD</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo que dicen los profesionales</h2>
+                <p>Confianza. Precisión. Resultados.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in-up">
+                    <p>"La plataforma de IA de THEMAIN ha reducido nuestro tiempo de diagnóstico en un 30%. Es una revolución para nuestro departamento de radiología."</p>
+                    <div class="testimonial-author">
+                        <img src="images/doctor_1.jpg" alt="Doctora Ana Torres">
+                        <div>
+                            <h4>Dra. Ana Torres</h4>
+                            <span>Jefa de Radiología, Clínica Central</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <p>"Implementamos el sistema de monitorización remota y la tasa de reingreso de pacientes crónicos ha disminuido significativamente. El soporte es excelente."</p>
+                    <div class="testimonial-author">
+                        <img src="images/doctor_2.jpg" alt="Doctor Carlos Vega">
+                        <div>
+                            <h4>Dr. Carlos Vega</h4>
+                            <span>Cardiólogo, Hospital Metropolitano</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer id="contacto">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Sobre Nosotros</h3>
-                    <p>Somos una startup innovadora dedicada a desarrollar soluciones tecnológicas que transforman la manera en que las empresas operan.</p>
+                    <h3>Sobre THEMAIN</h3>
+                    <p>Somos una startup de ingeniería biomédica dedicada a desarrollar soluciones tecnológicas que transforman la atención médica.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#demo">Demo</a></li>
-                        <li><a href="#productos">Productos</a></li>
-                        <li><a href="#caracteristicas">Características</a></li>
+                        <li><a href="#soluciones">Soluciones</a></li>
+                        <li><a href="#caracteristicas">Beneficios</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
@@ -695,6 +873,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> PERU Comas Urb****</p>
                     <p><i class="fas fa-phone"></i> +51 932 *** ***</p>
                     <p><i class="fas fa-envelope"></i> a20200****@pucp.edu.pe</p>
+                    <p><i class="fas fa-briefcase"></i> ¿Interesado? <a href="mailto:ventas@themain.com" class="footer-email-link">ventas@themain.com</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -704,68 +883,85 @@
     </footer>
 
     <script>
-        // Menú móvil
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-        
-        // Cerrar menú al hacer clic en un enlace
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-            });
-        });
-        
-        // Efecto de scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const header = document.querySelector('#main-header');
+
+            // --- 1. Menú Móvil ---
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
                 }
             });
-        });
-        
-        // Efecto de header al hacer scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if(window.scrollY > 100) {
-                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
-        });
-        
-        // Animación de elementos al hacer scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+
+            // --- 2. Cerrar menú al hacer clic en un enlace (móvil) ---
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        menuToggle.querySelector('i').classList.remove('fa-times');
+                        menuToggle.querySelector('i').classList.add('fa-bars');
+                    }
+                });
+            });
+
+            // --- 3. Efecto de header al hacer scroll ---
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) { // Un umbral más corto para el efecto
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
             });
-        }, observerOptions);
-        
-        // Observar elementos para animación
-        document.querySelectorAll('.feature-card, .product-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
+
+            // --- 4. Efecto de scroll suave ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        const headerOffset = header.offsetHeight;
+                        const elementPosition = targetElement.offsetTop;
+                        const offsetPosition = elementPosition - headerOffset - 20; 
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // --- 5. Animación de elementos al hacer scroll ---
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
         });
     </script>
+
 </body>
 </html>
