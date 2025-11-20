@@ -323,8 +323,8 @@
 
         .card-media {
             width: 100%;
-            max-width: 400px;
-            height: 300px;
+            max-width: 750px; /* Antes era 400px, ahora es mucho más ancho */
+            height: 500px;    /* Antes era 300px, ahora es más alto */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -333,7 +333,7 @@
             position: relative;
             z-index: 1;
             background-color: #e0e7ff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Sombra un poco más fuerte */
         }
 
         .mapa-peru-media {
@@ -830,7 +830,7 @@
                     <a href="#contacto" class="cta-button small-button">Conoce Nuestros Proyectos</a>
                 </div>
                <div class="card-media">
-    <video class="mapa-peru-media" autoplay muted loop playsinline>
+    <video class="mapa-peru-media" controls playsinline style="object-fit: cover;">
         <source src="images/video1.mp4" type="video/mp4">
         Tu navegador no soporta la etiqueta de video.
     </video>
